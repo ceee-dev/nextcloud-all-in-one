@@ -69,12 +69,12 @@ volumes: # If you want to store the data on a different drive, see https://githu
 networks:
   nextcloud-aio:
     name: nextcloud-aio # This line is not allowed to be changed as otherwise the created network will not be used by the other containers of AIO
-      driver: bridge
-      driver_opts:
-        com.docker.network.bridge.name: br-nc-aio-$(USER)
-      enable_ipv6: true
-      ipam:
-        driver: default
-        config:
-           - subnet: 172.22.1.0/24 # IPv4 subnet to use
-           - subnet: fd12:3456:789a:2::/64 # IPv6 subnet to use
+    driver: bridge
+    driver_opts:
+      com.docker.network.bridge.name: br-nc-aio-$(USER)
+    enable_ipv6: true
+    ipam:
+      driver: default
+      config:
+        - subnet: 172.22.1.0/24 # IPv4 subnet to use
+        - subnet: fd12:3456:789a:2::/64 # IPv6 subnet to use
