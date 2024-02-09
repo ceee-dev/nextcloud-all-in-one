@@ -1,9 +1,9 @@
-FROM php:8.1.27-fpm-alpine3.18
+FROM php:8.1.27-fpm-alpine3.19
 
 ENV PHP_MEMORY_LIMIT 512M
 ENV PHP_UPLOAD_LIMIT 10G
 ENV PHP_MAX_TIME 3600
-ENV NEXTCLOUD_VERSION 27.1.6
+ENV NEXTCLOUD_VERSION 27.1.5
 ENV AIO_TOKEN 123456
 ENV AIO_URL localhost
 
@@ -38,6 +38,7 @@ RUN set -ex; \
         gmp-dev \
         icu-dev \
         imagemagick-dev \
+        imagemagick-svg \
         libevent-dev \
         libjpeg-turbo-dev \
         libmcrypt-dev \
@@ -192,6 +193,7 @@ RUN set -ex; \
         nodejs \
         bind-tools \
         imagemagick \
+        imagemagick-svg \
         coreutils; \
     \
     grep -q '^pm = dynamic' /usr/local/etc/php-fpm.d/www.conf; \
